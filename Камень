@@ -1,0 +1,54 @@
+
+using System;
+using System.Collections.Generic;
+class HelloWorld {
+  static void Main() {
+    var varians = new List<string> { "камень", "ножницы", "бумага" };
+    int check=0;
+    Console.WriteLine("Поиграем в игру "+"Камень,ножницы,бумага?");
+    while (check<1) {
+        string random_variant=varians[new Random().Next(0, 2)];
+        Console.WriteLine("Напишите свой вариант с маленькой буквы");
+        string a = Convert.ToString(Console.ReadLine());
+        //проверка на наличие варианта в списке
+        if (a==varians[0] ^a==varians[1] ^a==varians[2]) {
+            //проверка на одинаковые варианты
+            if (a==random_variant){
+                Console.WriteLine("Ой.Мы выбрали одинаковый вариант.Давай попробуем еще раз");
+            }
+            else {
+                //сама игра
+                if (a==varians[0]){
+                    if (random_variant=="ножницы") {
+                        Console.WriteLine("Мой вариант "+random_variant+". Твой вариант "+a+". Ты победил");
+                    }
+                    else{
+                        Console.WriteLine("Мой вариант "+random_variant+". Твой вариант "+a+". Я победил");
+                    }
+                }
+                if (a==varians[1]){
+                    if (random_variant=="бумага") {
+                        Console.WriteLine("Мой вариант "+random_variant+". Твой вариант "+a+". Ты победил");
+                    }
+                    else{
+                        Console.WriteLine("Мой вариант "+random_variant+". Твой вариант "+a+". Я победил");
+                    }
+                }
+                if (a==varians[2]){
+                    if (random_variant=="камень") {
+                        Console.WriteLine("Мой вариант "+random_variant+". Твой вариант "+a+". Ты победил");
+                    }
+                    else{
+                        Console.WriteLine("Мой вариант "+random_variant+". Твой вариант "+a+". Я победил");
+                    }
+                }
+                check=+1;
+              
+            }
+        }
+        else {
+            Console.WriteLine("Ой.Такого варианта нет в игре. Давай попробуем еще раз");
+        }
+    }
+  }
+}
